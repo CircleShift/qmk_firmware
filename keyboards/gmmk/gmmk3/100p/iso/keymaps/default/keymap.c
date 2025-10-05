@@ -90,6 +90,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [WIN_BL] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+    [WIN_FL] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
+    [MACOS_BL] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+    [MACOS_FL] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
+};
+#endif
+
 #ifdef DIP_SWITCH_ENABLE
 
 bool dip_switch_update_user(uint8_t index, bool active) {
@@ -107,13 +116,4 @@ bool dip_switch_update_user(uint8_t index, bool active) {
     return true;
 }
 
-#endif
-
-#if defined(ENCODER_MAP_ENABLE)
-const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [WIN_BL] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
-    [WIN_FL] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
-    [MACOS_BL] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
-    [MACOS_FL] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
-};
 #endif
